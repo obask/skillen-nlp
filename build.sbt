@@ -1,23 +1,25 @@
-name         := "skillen"
+name := "skillen"
 
-version      := "1.0"
+version := "1.0"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 
 libraryDependencies ++= {
-  val akkaV       = "2.3.12"
-  val akkaStreamV = "1.0"
-  val luceneVersion = "5.3.0"
+  val akkaV = "2.4.14"
+  val akkaStreamV = "10.0.0"
+  val luceneVersion = "6.3.0"
   Seq(
-    "com.typesafe.akka" %% "akka-actor"                        % akkaV,
-    "com.typesafe.akka" %% "akka-stream-experimental"          % akkaStreamV,
-    "com.typesafe.akka" %% "akka-http-core-experimental"       % akkaStreamV,
-    "com.typesafe.akka" %% "akka-http-experimental"            % akkaStreamV,
-    "com.typesafe.akka" %% "akka-http-spray-json-experimental" % akkaStreamV,
-    "com.typesafe.akka" %% "akka-http-testkit-experimental"    % akkaStreamV,
-    "org.apache.lucene" %  "lucene-core"                       % luceneVersion,
-    "org.apache.lucene" %  "lucene-analyzers-common"           % luceneVersion,
-    "org.apache.lucene" %  "lucene-queryparser"                % luceneVersion
+    "com.typesafe.akka" %% "akka-actor" % akkaV,
+    "com.typesafe.akka" %% "akka-stream" % akkaV,
+    "com.typesafe.akka" %% "akka-http-core" % akkaStreamV,
+    "com.typesafe.akka" %% "akka-http" % akkaStreamV,
+    "com.typesafe.akka" %% "akka-http-testkit" % akkaStreamV,
+    "com.typesafe.akka" %% "akka-http-spray-json" % akkaStreamV,
+    "org.apache.lucene" % "lucene-core" % luceneVersion,
+    "org.apache.lucene" % "lucene-analyzers-common" % luceneVersion,
+    "org.apache.lucene" % "lucene-queryparser" % luceneVersion,
+
+    "org.mongodb.scala" % "mongo-scala-driver_2.11" % "1.0.1"
   )
 
 }
