@@ -2,7 +2,7 @@ name := "skillen"
 
 version := "1.0"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.12.1"
 
 libraryDependencies ++= {
   val akkaV = "2.4.14"
@@ -19,7 +19,7 @@ libraryDependencies ++= {
     "org.apache.lucene" % "lucene-analyzers-common" % luceneVersion,
     "org.apache.lucene" % "lucene-queryparser" % luceneVersion,
 
-    "org.mongodb.scala" % "mongo-scala-driver_2.11" % "1.0.1"
+    "org.mongodb.scala" %% "mongo-scala-driver" % "1.2.1"
   )
 
 }
