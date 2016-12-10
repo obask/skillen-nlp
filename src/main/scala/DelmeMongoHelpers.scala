@@ -5,7 +5,7 @@ import org.mongodb.scala.{Document, Observable}
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration
 
-object Helpers {
+object DelmeMongoHelpers {
 
   implicit class DocumentObservable[C](val observable: Observable[Document]) extends ImplicitObservable[Document] {
     override val converter: (Document) => String = (doc) => doc.toJson

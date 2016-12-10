@@ -16,10 +16,3 @@ object Main extends App with Service {
 
   Http().bindAndHandle(routes, config.getString("http.interface"), config.getInt("http.port"))
 }
-
-
-//object Main extends App {
-//
-//
-//}
-

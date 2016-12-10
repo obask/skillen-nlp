@@ -16,7 +16,7 @@ import java.util.Arrays
 import java.util.List
 
 // From chapter 4
-object AnalyzerDemoX {
+object AnalyzerMain {
   private val examples: Array[String] = Array("The quick brown fox jumped over the lazy dog", "Please switch the light's color", "XY&Z Corporation - xyz@example.com")
   private val analyzers: Array[Analyzer] = Array[Analyzer](new EnglishAnalyzer)
 
@@ -40,7 +40,6 @@ object AnalyzerDemoX {
     stream.close()
   }
 
-  @throws[IOException]
   def main(args: Array[String]) {
     var strings: Array[String] = examples
     if (args.length > 0) {

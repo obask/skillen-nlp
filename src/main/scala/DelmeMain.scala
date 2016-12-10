@@ -1,20 +1,24 @@
-import org.mongodb.scala.{MongoClient, MongoDatabase}
-import Helpers._
+import org.mongodb.scala.{Document, MongoClient, MongoDatabase}
+import DelmeMongoHelpers._
 
 object DelmeMain extends App {
 
   val MONGO_DATABASE = "skillen"
-
-  // To directly connect to the default server localhost on port 27017
   val mongoClient: MongoClient = MongoClient()
   val database: MongoDatabase = mongoClient.getDatabase(MONGO_DATABASE)
 
-  println("BEGIN")
 
-  val collection = database.getCollection("books")
+  def main(): Unit = {
+    println("BEGIN")
 
-  collection.find().first().printHeadResult()
+    val collection = database.getCollection("books")
+    val results: Seq[Document] = collection.find().limit(10).results()
+    val values = results.map(_.getString("title"))
 
-  println("END")
+    println(values)
+
+    println("END")
+  }
+  main()
 
 }
