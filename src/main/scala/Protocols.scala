@@ -6,5 +6,4 @@ trait Protocols extends DefaultJsonProtocol {
   implicit val justRequestFormat = jsonFormat3(JustRequest.apply)
   implicit val justWorkbenchInfoFormat = jsonFormat2(WorkbenchInfo.apply)
   implicit val bookFormat = jsonFormat3(BookInfo.apply)
-
 }
