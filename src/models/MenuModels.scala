@@ -12,6 +12,7 @@ object MenuModels {
 
   case class JustInfo(ip: String, country: Option[String])
 
+  // token, word, class
   case class JustRequest(t: String, w: String, c: String)
 
   case class WorkbenchInfo(caption: String, text: Seq[Either[String, JustRequest]])
@@ -23,5 +24,8 @@ object MenuModels {
       BookInfo(d.getString("title"), d.getString("url"), d.getString("text"))
     }
   }
+
+  case class UploadBook(inputValue: String, textAreaValue: Option[String])
+
 
 }

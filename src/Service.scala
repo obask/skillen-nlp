@@ -2,13 +2,13 @@ import akka.actor.ActorSystem
 import akka.event.LoggingAdapter
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport._
 import akka.http.scaladsl.model.StatusCodes.Redirection
-import akka.http.scaladsl.server.Directives._
+import akka.http.scaladsl.server.Directives.{entity, _}
 import akka.http.scaladsl.server.Route
 import akka.stream.Materializer
 import com.typesafe.config.Config
 import controllers.MenuController
-import models.MenuModels.JustRequest
-import org.mongodb.scala.{MongoClient, MongoDatabase}
+import models.MenuModels.{JustRequest, UploadBook}
+import org.mongodb.scala.{MongoClient, MongoDatabase, Observable}
 import spray.json.JsonParser
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
@@ -34,14 +34,22 @@ trait Service extends Protocols {
       get {
         path("api" / "texts") {
           complete {
-            Future {
-              menuController.listBooks().toFuture()
-            }
+            menuController.listBooks().toFuture()
           }
         } ~
-        path("api" / "workbench") {
+        pathPrefix("api" / "workbench" / Remaining) { x =>
           complete {
-            menuController.loadText()
+            logger.info("MFOSAMFOMAS")
+            menuController.loadText(x)
+          }
+        }
+      } ~
+      post {
+        path("api" / "upload-book") {
+          entity(as[UploadBook]) { x =>
+            complete {
+              menuController.uploadBook(x)
+            }
           }
         }
       }

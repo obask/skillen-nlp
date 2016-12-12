@@ -1,19 +1,8 @@
-import org.apache.lucene.analysis.Analyzer
-import org.apache.lucene.analysis.core.StopAnalyzer
-import org.apache.lucene.analysis.core.SimpleAnalyzer
-import org.apache.lucene.analysis.TokenStream
-import org.apache.lucene.analysis.core.WhitespaceAnalyzer
-import org.apache.lucene.analysis.en.EnglishAnalyzer
-import org.apache.lucene.analysis.standard.StandardAnalyzer
-import org.apache.lucene.analysis.tokenattributes._
-import org.apache.lucene.util.Attribute
-import org.apache.lucene.util.BytesRef
-import org.apache.lucene.util.Version
-import java.io.IOException
 import java.io.StringReader
-import java.util.ArrayList
-import java.util.Arrays
-import java.util.List
+
+import org.apache.lucene.analysis.{Analyzer, TokenStream}
+import org.apache.lucene.analysis.en.EnglishAnalyzer
+import org.apache.lucene.analysis.tokenattributes._
 
 // From chapter 4
 object AnalyzerMain {
